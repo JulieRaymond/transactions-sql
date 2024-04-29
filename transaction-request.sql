@@ -6,7 +6,7 @@ USE transactions;
 
 -- Création des tables si elles n'existent pas déjà
 CREATE TABLE IF NOT EXISTS table1 (
-    column1 datatype,
+    column1 VARCHAR(255),
     -- autres colonnes...
 );
 
@@ -14,8 +14,16 @@ CREATE TABLE IF NOT EXISTS table2 (
     -- définition des colonnes...
 );
 
+CREATE TABLE IF NOT EXISTS table3 (
+    -- définition des colonnes...
+);
+
+CREATE TABLE IF NOT EXISTS table4 (
+    -- définition des colonnes...
+);
+
 -- Début de la première transaction
-BEGIN;
+START TRANSACTION;
 
 -- Requêtes de la première transaction
 UPDATE table1 SET column1 = 'valeur1' WHERE condition1;
@@ -29,7 +37,7 @@ ROLLBACK;
 -- Fin de la première transaction
 
 -- Début de la deuxième transaction
-BEGIN;
+START TRANSACTION;
 
 -- Requêtes de la deuxième transaction
 UPDATE table3 SET column2 = 'valeur2' WHERE condition3;
